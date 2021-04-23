@@ -3,10 +3,10 @@ import React from 'react';
 // Component Imports
 import Home from './HomeComponent';
 import Software from './SoftwareComponent';
-//import Order from './OrderComponent';
-//import About from './AboutComponent';
-//import Contact from './ContactComponent';
-//import Login from './LoginComponent';
+import Order from './OrderComponent';
+import About from './AboutComponent';
+import Contact from './ContactComponent';
+import Login from './LoginComponent';
 
 // Package Imports
 import { createStackNavigator } from 'react-navigation-stack';
@@ -64,6 +64,102 @@ export const SoftwareNavigator = createStackNavigator(
     }
 );
 
+export const OrderNavigator = createStackNavigator(
+    {
+        Order: { screen: Order },
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            title: 'Ordering',
+            headerStyle: {
+                backgroundColor: '#454545'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={mainStyles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
+export const AboutNavigator = createStackNavigator(
+    {
+        About: { screen: About },
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            title: 'About Us',
+            headerStyle: {
+                backgroundColor: '#454545'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={mainStyles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
+export const ContactNavigator = createStackNavigator(
+    {
+        Contact: { screen: Contact },
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            title: 'Contact Us',
+            headerStyle: {
+                backgroundColor: '#454545'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={mainStyles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
+export const LoginNavigator = createStackNavigator(
+    {
+        Login: { screen: Login },
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            title: 'Login',
+            headerStyle: {
+                backgroundColor: '#454545'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={mainStyles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
 export const MainNavigator = createDrawerNavigator(
     {
         Home: { 
@@ -72,7 +168,7 @@ export const MainNavigator = createDrawerNavigator(
                 drawerLabel: 'Home',
                 drawerIcon: ({tintColor}) => (
                     <Icon   
-                        name='home'
+                        name='download'
                         type='font-awesome'
                         size={24}
                         color={tintColor}
@@ -94,5 +190,61 @@ export const MainNavigator = createDrawerNavigator(
                 )
             }
         },
+        Order: { 
+            screen: OrderNavigator,
+            navigationOptions: {
+                drawerLabel: 'Ordering',
+                drawerIcon: ({tintColor}) => (
+                    <Icon   
+                        name='download'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        About: { 
+            screen: AboutNavigator,
+            navigationOptions: {
+                drawerLabel: 'About Us',
+                drawerIcon: ({tintColor}) => (
+                    <Icon   
+                        name='download'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        Contact: { 
+            screen: ContactNavigator,
+            navigationOptions: {
+                drawerLabel: 'Contact Us',
+                drawerIcon: ({tintColor}) => (
+                    <Icon   
+                        name='download'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        Login: { 
+            screen: LoginNavigator,
+            navigationOptions: {
+                drawerLabel: 'Login',
+                drawerIcon: ({tintColor}) => (
+                    <Icon   
+                        name='download'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        }
     }
 )

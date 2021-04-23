@@ -59,19 +59,21 @@ export const mainStyles = StyleSheet.create({
         textAlign: 'center'
     },
     button1: {
-        color: 'hsla(0, 0%, 30%, 0.8)', 
-        padding: 15, 
+        backgroundColor: 'hsla(0, 0%, 30%, 0.8)',
+        color: 'white', 
+        padding: 24, 
         width: 300, 
         alignItems: 'center'       
     },
     button2: {
-        color: 'hsla(0, 70%, 30%, .8)', 
-        padding: 15, 
+        backgroundColor: 'hsla(0, 70%, 30%, .8)',
+        color: 'white', 
+        padding: 24, 
         width: 300, 
         alignItems: 'center'       
     },
     buttonText: {
         color: 'white', 
-        fontSize: 16
+        fontSize: 20
     }
 });
