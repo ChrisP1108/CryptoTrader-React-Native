@@ -2,7 +2,7 @@ import React from 'react';
 
 // Component Imports
 import Home from './HomeComponent';
-//import Software from './SoftwareComponent';
+import Software from './SoftwareComponent';
 //import Order from './OrderComponent';
 //import About from './AboutComponent';
 //import Contact from './ContactComponent';
@@ -40,6 +40,30 @@ export const HomeNavigator = createStackNavigator(
     }
 );
 
+export const SoftwareNavigator = createStackNavigator(
+    {
+        Software: { screen: Software },
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            title: 'Software',
+            headerStyle: {
+                backgroundColor: '#454545'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={mainStyles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
+
 export const MainNavigator = createDrawerNavigator(
     {
         Home: { 
@@ -55,6 +79,20 @@ export const MainNavigator = createDrawerNavigator(
                     />
                 )
             }
-        }
+        },
+        Software: { 
+            screen: SoftwareNavigator,
+            navigationOptions: {
+                drawerLabel: 'Software',
+                drawerIcon: ({tintColor}) => (
+                    <Icon   
+                        name='download'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
     }
 )

@@ -29,7 +29,14 @@ export const mainStyles = StyleSheet.create({
         fontSize: 24
     },
     section1: {
-        backgroundColor: '#4E0909F0', 
+        backgroundColor: 'hsla(0, 79%, 17%, 0.9)', 
+        marginBottom: 30, 
+        margin: 15, 
+        alignItems: 'center', 
+        paddingBottom: 30
+    },
+    section2: {
+        backgroundColor: 'hsla(0, 0%, 19%, .92)', 
         marginBottom: 30, 
         margin: 15, 
         alignItems: 'center', 
@@ -51,8 +58,14 @@ export const mainStyles = StyleSheet.create({
         margin: 20,
         textAlign: 'center'
     },
-    button: {
-        backgroundColor: '#656565E0', 
+    button1: {
+        color: 'hsla(0, 0%, 30%, 0.8)', 
+        padding: 15, 
+        width: 300, 
+        alignItems: 'center'       
+    },
+    button2: {
+        color: 'hsla(0, 70%, 30%, .8)', 
         padding: 15, 
         width: 300, 
         alignItems: 'center'       
