@@ -17,6 +17,7 @@ import { Icon } from 'react-native-elements';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 export const HomeNavigator = createStackNavigator(
+
     {
         Home: { screen: Home },
     },
@@ -48,7 +49,7 @@ export const SoftwareNavigator = createStackNavigator(
         defaultNavigationOptions: ({navigation}) => ({
             title: 'Software',
             headerStyle: {
-                backgroundColor: '#454545'
+                backgroundColor: '#791515'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {

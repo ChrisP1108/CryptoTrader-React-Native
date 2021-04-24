@@ -28,6 +28,10 @@ export const mainStyles = StyleSheet.create({
         color: '#fff',
         fontSize: 24
     },
+    imageBackground: {
+        resizeMode: 'cover', 
+        justifyContent: 'center'
+    },
     section1: {
         backgroundColor: 'hsla(0, 79%, 17%, 0.9)', 
         marginBottom: 30, 
@@ -48,9 +52,23 @@ export const mainStyles = StyleSheet.create({
         margin: 20, 
         textAlign: 'center'
     },
-    sectionImage : {
+    sectionHeadingOverImage: {
+        position: 'absolute',
+        top: 40,
+        color: 'white', 
+        fontSize: 28,
+        fontWeight: '800', 
+        margin: 20, 
+        textAlign: 'center'
+    },
+    sectionImage: {
         width: 300, 
         height: 200
+    },
+    sectionImageFluid : {
+        width: 360, 
+        height: 240,
+        opacity: .3
     },
     sectionText: {
         color: 'white', 

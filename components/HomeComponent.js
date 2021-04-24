@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, FlatList, Text, Animated, TouchableOpacity, ImageBackground } from 'react-native';
+import React from 'react';
+import { View, FlatList, Text, Animated, Pressable, TouchableOpacity, ImageBackground } from 'react-native';
 import { useContext } from 'react';
 import { State } from '../state/State';
 import { ListItem, Tile, Card, Image } from 'react-native-elements';
@@ -9,11 +9,11 @@ const Home = (props) => {
 
     const homeimport = useContext(State);
     const homepagecontent = homeimport.homepagecontent;
-    
+
     const { navigate } = props.navigation;
 
     const renderHomeItem = ({item}) => {
-        console.log('refreshed')
+        console.log(item)
         return (
             <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
                 <Text style={mainStyles.sectionHeading}>
@@ -21,12 +21,12 @@ const Home = (props) => {
                 </Text>
                 <Image 
                     style={mainStyles.sectionImage}
-                    source={require('../assets/images/11.jpg')}                   
+                    source={require('../assets/images/11.jpg')}  
                 />
                 <Text style={mainStyles.sectionText}>
                     {item.content1 + ' ' + item.content2}
                 </Text>
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={item.inverted ? mainStyles.button2 : mainStyles.button1}
                     onPress={() => navigate(item.link)}
                 >
@@ -39,7 +39,7 @@ const Home = (props) => {
     return( 
         <ImageBackground 
             source={require('../assets/images/5.jpg')}
-            style={{resizeMode: 'cover', justifyContent: 'center'}}
+            style={mainStyles.imageBackground}
         >
             <FlatList
                 data={homepagecontent}
