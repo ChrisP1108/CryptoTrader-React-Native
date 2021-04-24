@@ -3,6 +3,7 @@ import { View, FlatList, Text, Animated, TouchableOpacity, ImageBackground } fro
 import { useContext } from 'react';
 import { State } from '../state/State';
 import { ListItem, Tile, Card, Image } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Software = (props) => {
@@ -19,7 +20,7 @@ const Software = (props) => {
                     style={mainStyles.sectionImageFluid}
                     source={require('../assets/images/6.jpg')}                   
                 />
-                <Text style={mainStyles.sectionHeadingOverImage}>
+                <Text style={styles.headingOverImage}>
                     {item.heading}
                 </Text>
                 <Text style={mainStyles.sectionText}>
@@ -37,7 +38,7 @@ const Software = (props) => {
 
     return( 
         <ImageBackground 
-            source={require('../assets/images/5.jpg')}
+            source={require('../assets/images/9.jpg')}
             style={mainStyles.imageBackground, {paddingBottom: 119}}
         >
             <FlatList
@@ -48,6 +49,18 @@ const Software = (props) => {
         </ImageBackground>
     )
 }
+
+const styles = StyleSheet.create({
+    headingOverImage: {
+        position: 'absolute',
+        top: 40,
+        color: 'white', 
+        fontSize: 28,
+        fontWeight: '800', 
+        margin: 20, 
+        textAlign: 'center'
+    }
+});
 
 export default Software
 
