@@ -97,7 +97,7 @@ export const AboutNavigator = createStackNavigator(
         defaultNavigationOptions: ({navigation}) => ({
             title: 'About Us',
             headerStyle: {
-                backgroundColor: '#454545'
+                backgroundColor: '#791515'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {

@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     button: {
-        backgroundColor: 'hsla(0, 0%, 30%, 0.8)',
+        backgroundColor: 'hsla(0, 70%, 30%, .8)',
         color: 'white', 
         padding: 24,
         margin: 15, 
