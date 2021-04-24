@@ -12,6 +12,6 @@ export const ABOUTPAGECONTENTS = [
     	link1: 'Home',
 		link2: 'Order',
     	link3: 'Contact',
-		inverted: false
+		inverted: true
 	}
 ];
