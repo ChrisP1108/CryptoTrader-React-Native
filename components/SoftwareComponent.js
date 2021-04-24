@@ -7,22 +7,21 @@ import { mainStyles } from '../styles/MainStylesComponent';
 
 const Software = (props) => {
 
-    const homeimport = useContext(State);
-    const homepagecontent = homeimport.homepagecontent;
+    const softwareimport = useContext(State);
+    const softwarepagecontent = softwareimport.softwarepagecontent;
     
     const { navigate } = props.navigation;
 
     const renderHomeItem = ({item}) => {
-        console.log('refreshed')
         return (
             <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
-                <Text style={mainStyles.sectionHeading}>
+                <Image 
+                    style={mainStyles.sectionImageFluid}
+                    source={require('../assets/images/6.jpg')}                   
+                />
+                <Text style={mainStyles.sectionHeadingOverImage}>
                     {item.heading}
                 </Text>
-                <Image 
-                    style={mainStyles.sectionImage}
-                    source={require('../assets/images/11.jpg')}                   
-                />
                 <Text style={mainStyles.sectionText}>
                     {item.content1 + ' ' + item.content2}
                 </Text>
@@ -39,10 +38,10 @@ const Software = (props) => {
     return( 
         <ImageBackground 
             source={require('../assets/images/5.jpg')}
-            style={{resizeMode: 'cover', justifyContent: 'center'}}
+            style={mainStyles.imageBackground, {paddingBottom: 119}}
         >
             <FlatList
-                data={homepagecontent}
+                data={softwarepagecontent}
                 renderItem={renderHomeItem}
                 keyExtractor={item => item.id.toString()}
             />
