@@ -3,12 +3,13 @@ import { View, FlatList, Text, Animated, TouchableOpacity, ImageBackground } fro
 import { useContext } from 'react';
 import { State } from '../state/State';
 import { ListItem, Tile, Card, Image } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const About = (props) => {
 
-    const homeimport = useContext(State);
-    const homepagecontent = homeimport.homepagecontent;
+    const aboutimport = useContext(State);
+    const aboutpagecontent = aboutimport.aboutpagecontent;
     
     const { navigate } = props.navigation;
 
@@ -16,21 +17,33 @@ const About = (props) => {
         console.log('refreshed')
         return (
             <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
-                <Text style={mainStyles.sectionHeading}>
+                <Image 
+                    style={mainStyles.sectionImageFluid}
+                    source={require('../assets/images/6.jpg')}                   
+                />
+                <Text style={styles.headingOverImage}>
                     {item.heading}
                 </Text>
-                <Image 
-                    style={mainStyles.sectionImage}
-                    source={require('../assets/images/11.jpg')}                   
-                />
                 <Text style={mainStyles.sectionText}>
                     {item.content1 + ' ' + item.content2}
                 </Text>
                 <TouchableOpacity 
-                    style={item.inverted ? mainStyles.button2 : mainStyles.button1}
-                    onPress={() => navigate(item.link)}
+                    style={styles.button}
+                    onPress={() => navigate(item.link1)}
                 >
-                    <Text style={mainStyles.buttonText}>{item.button}</Text>
+                    <Text style={mainStyles.buttonText}>{item.button1}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => navigate(item.link2)}
+                >
+                    <Text style={mainStyles.buttonText}>{item.button2}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => navigate(item.link3)}
+                >
+                    <Text style={mainStyles.buttonText}>{item.button3}</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -38,16 +51,36 @@ const About = (props) => {
 
     return( 
         <ImageBackground 
-            source={require('../assets/images/5.jpg')}
+            source={require('../assets/images/4.jpg')}
             style={{resizeMode: 'cover', justifyContent: 'center'}}
         >
             <FlatList
-                data={homepagecontent}
+                data={aboutpagecontent}
                 renderItem={renderHomeItem}
                 keyExtractor={item => item.id.toString()}
             />
         </ImageBackground>
     )
 }
+
+const styles = StyleSheet.create({
+    headingOverImage: {
+        position: 'absolute',
+        top: 70,
+        color: 'white', 
+        fontSize: 28,
+        fontWeight: '800', 
+        margin: 20, 
+        textAlign: 'center'
+    },
+    button: {
+        backgroundColor: 'hsla(0, 0%, 30%, 0.8)',
+        color: 'white', 
+        padding: 24,
+        margin: 15, 
+        width: 300, 
+        alignItems: 'center'       
+    },
+});
 
 export default About
