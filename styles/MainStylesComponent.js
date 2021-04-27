@@ -66,7 +66,7 @@ export const mainStyles = StyleSheet.create({
         height: 200
     },
     sectionImageFluid : {
-        width: 360, 
+        width: 364, 
         height: 240,
         opacity: .3
     },
