@@ -15,7 +15,7 @@ const Software = (props) => {
 
     const renderHomeItem = ({item}) => {
         return (
-            <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
+            <View style={mainStyles.section2}>
                 <Image 
                     style={mainStyles.sectionImageFluid}
                     source={require('../assets/images/6.jpg')}                   
@@ -27,7 +27,7 @@ const Software = (props) => {
                     {item.content1 + ' ' + item.content2}
                 </Text>
                 <TouchableOpacity 
-                    style={item.inverted ? mainStyles.button2 : mainStyles.button1}
+                    style={mainStyles.button2}
                     onPress={() => navigate(item.link)}
                 >
                     <Text style={mainStyles.buttonText}>{item.button}</Text>
