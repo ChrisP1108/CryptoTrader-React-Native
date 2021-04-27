@@ -21,7 +21,9 @@ const Home = (props) => {
                 </Text>
                 <Image 
                     style={mainStyles.sectionImage}
-                    source={require('../assets/images/11.jpg')}  
+                    source={item.id === 1 ? require('../assets/images/11.jpg') : 
+                            item.id === 2 ? require('../assets/images/8.jpg') : 
+                            require('../assets/images/13.jpg')} 
                 />
                 <Text style={mainStyles.sectionText}>
                     {item.content1 + ' ' + item.content2}
