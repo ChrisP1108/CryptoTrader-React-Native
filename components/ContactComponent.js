@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, FlatList, Text, TextInput, Alert, 
-    Animated, TouchableOpacity, ImageBackground, Button } from 'react-native';
+    Animated, TouchableOpacity, ImageBackground, StyleSheet, Button } from 'react-native';
 import { useContext, useState } from 'react';
 import { State } from '../state/State';
 import { ListItem, Tile, Card, Image, Input, Rating } from 'react-native-elements';
@@ -10,63 +10,81 @@ const Contact = (props) => {
 
     const contactimport = useContext(State);
     const contactpagecontent = contactimport.contactuspagecontent;
-    
-    const { navigate } = props.navigation;
-
-    const renderContactItem = ({item}) => {
-        return (
-            <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
-                <Text style={mainStyles.sectionHeading}>
-                    {item.heading}
-                </Text>
-                <Image 
-                    style={mainStyles.sectionImage}
-                    source={require('../assets/images/14.jpg')}                   
-                />
-                <Text style={mainStyles.sectionText}>
-                    {item.content1 + ' ' + item.content2}
-                </Text>
-            </View>
-        )
-    }
 
     const ContactForm = () => {
 
         const resetForm = {
             firstName: '',
             lastName: '',
-            phoneNum: '',
-            email: '',
-            agree: false,
-            contactType: 'By Phone',
-            feedback: ''
+            feedback: '',
+            rating: 0
         }
         
         const [form, setForm] = useState(resetForm);
     
         const onSubmit = () => {
-            Alert.alert(JSON.stringify(form));
+            if (form.firstName === '' || form.lastName === '' 
+                || form.feedback === '' || form.rating === 0) {
+                    Alert.alert(
+                        'Not All Fields Have Been Filled Out',
+                        'Please go back and fill out all fields before submitting.',
+                        [
+                            {
+                                text: 'Ok',
+                                style: 'cancel',
+                                onPress: () => console.log('Cancel Pressed')
+                            }
+                        ]
+                    )
+                return;
+            }
+            console.log(form)
             setForm(resetForm);
         }
 
         return (
-            <View>
-                <Text>First Name</Text>
+            <View style={mainStyles.section1}>
+                <Text style={mainStyles.sectionHeading}>
+                    Fill Out All Fields And Provide A Rating
+                </Text>
+                <Rating
+                    showRating
+                    startingValue={form.rating}
+                    imageSize={33}
+                    ratingCount={10}
+                    type='star'
+                    ratingTextColor='white'
+                    tintColor={'#454545'}
+                    onFinishRating={input => setForm({...form, rating: input})} 
+                    style={styles.ratingSection}
+                    value={form.rating}
+                />
                 <Input 
+                    style={styles.inputSection}
                     placeholder='First Name'
+                    leftIcon={{type: 'font-awesome', name: 'user-o'}}
                     name='firstName'
-                    onChangeText={firstName => setForm({firstName: firstName})}
+                    onChangeText={text => setForm({...form, firstName: text})}
                     value={form.firstName}
                 />
-                <Text>Last Name</Text>
                 <Input 
+                    style={styles.inputSection}
                     placeholder='Last Name'
+                    leftIcon={{type: 'font-awesome', name: 'comment'}}
                     name='lastName'
-                    onChangeText={lastName => setForm({lastName: lastName})}
+                    onChangeText={text => setForm({...form, lastName: text})}
                     value={form.lastName}
                 />
+                <Input 
+                    style={styles.inputSection}
+                    placeholder='Your feedback'
+                    leftIcon={{type: 'font-awesome', name: 'comment'}}
+                    name='feedback'
+                    onChangeText={text => setForm({...form, feedback: text})}
+                    value={form.feedback}
+                />
                 <TouchableOpacity
-                    style={mainStyles.button2}
+                    style={mainStyles.button1}
                     onPress={() => onSubmit()}
                 >
                     <Text style={mainStyles.buttonText}>Submit</Text>
@@ -76,18 +94,30 @@ const Contact = (props) => {
     }
 
     return( 
-        <ImageBackground 
-            source={require('../assets/images/2.jpg')}
-            style={{resizeMode: 'cover', justifyContent: 'center'}}
-        >
-            <FlatList
-                data={contactpagecontent}
-                renderItem={renderContactItem}
-                keyExtractor={item => item.id.toString()}
-            />
-            <ContactForm />
-        </ImageBackground>
+        <View>
+            <ImageBackground 
+                source={require('../assets/images/2.jpg')}
+                style={mainStyles.imageBackground, {paddingBottom: 119}}
+            >
+                <ContactForm />
+            </ImageBackground>
+        </View>
     )
 }
+
+const styles = StyleSheet.create({
+    ratingSection: {
+        backgroundColor: '#00000000',
+        marginBottom: 30, 
+        margin: 15, 
+        alignItems: 'center', 
+        paddingBottom: 30
+    },
+    inputSection: {
+        alignItems: 'center',
+        color: '#fff',
+        backgroundColor: '#fff'
+    },
+});
 
 export default Contact
