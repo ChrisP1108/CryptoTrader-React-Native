@@ -13,7 +13,7 @@ const About = (props) => {
     
     const { navigate } = props.navigation;
 
-    const renderHomeItem = ({item}) => {
+    const renderAboutItem = ({item}) => {
         console.log('refreshed')
         return (
             <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
@@ -56,7 +56,7 @@ const About = (props) => {
         >
             <FlatList
                 data={aboutpagecontent}
-                renderItem={renderHomeItem}
+                renderItem={renderAboutItem}
                 keyExtractor={item => item.id.toString()}
             />
         </ImageBackground>

@@ -13,7 +13,7 @@ const Software = (props) => {
     
     const { navigate } = props.navigation;
 
-    const renderHomeItem = ({item}) => {
+    const renderSoftwareItem = ({item}) => {
         return (
             <View style={mainStyles.section2}>
                 <Image 
@@ -43,7 +43,7 @@ const Software = (props) => {
         >
             <FlatList
                 data={softwarepagecontent}
-                renderItem={renderHomeItem}
+                renderItem={renderSoftwareItem}
                 keyExtractor={item => item.id.toString()}
             />
         </ImageBackground>
