@@ -145,7 +145,7 @@ export const LoginNavigator = createStackNavigator(
         defaultNavigationOptions: ({navigation}) => ({
             title: 'Login',
             headerStyle: {
-                backgroundColor: '#454545'
+                backgroundColor: '#791515'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
