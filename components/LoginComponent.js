@@ -1,53 +1,142 @@
-import React, { Component } from 'react';
-import { View, FlatList, Text, Animated, TouchableOpacity, ImageBackground } from 'react-native';
-import { useContext } from 'react';
-import { State } from '../state/State';
-import { ListItem, Tile, Card, Image } from 'react-native-elements';
+import React from 'react';
+import { View, FlatList, Text, TextInput, Alert, 
+    Animated, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
+import { useContext, useState } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { ListItem, Tile, Card, Image, Input, CheckBox, Rating } from 'react-native-elements';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Login = (props) => {
 
-    const homeimport = useContext(State);
-    const homepagecontent = homeimport.homepagecontent;
-    
-    const { navigate } = props.navigation;
+    const ContactForm = () => {
 
-    const renderHomeItem = ({item}) => {
-        console.log('refreshed')
+        const resetForm = {
+            userName: '',
+            password: '',
+            remember: false
+        }
+        
+        const [form, setForm] = useState(resetForm);
+    
+        const onLogin = () => {
+            if (form.userName === '' || form.password === '') {
+                    Alert.alert(
+                        'Not All Fields Have Been Filled Out',
+                        'Please go back and fill out all fields before logging in.',
+                        [
+                            {
+                                text: 'Ok',
+                                style: 'cancel',
+                                onPress: () => console.log('Cancel Pressed')
+                            }
+                        ]
+                    )
+                return;
+            }
+            console.log(form)
+            setForm(resetForm);
+        }
+
         return (
-            <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
+            <View style={mainStyles.section2}>
                 <Text style={mainStyles.sectionHeading}>
-                    {item.heading}
+                    Enter Login Credentials
                 </Text>
-                <Image 
-                    style={mainStyles.sectionImage}
-                    source={require('../assets/images/11.jpg')}                   
+                <Input 
+                    style={styles.inputSection}
+                    inputStyle={styles.whiteText}
+                    placeholder='Username'
+                    leftIcon={
+                        <Icon
+                            style={styles.icon}
+                            name='user'
+                            size={30}
+                            color='white'
+                        />
+                    }
+                    name='userName'
+                    onChangeText={text => setForm({...form, userName: text})}
+                    value={form.userName}
                 />
-                <Text style={mainStyles.sectionText}>
-                    {item.content1 + ' ' + item.content2}
-                </Text>
-                <TouchableOpacity 
-                    style={item.inverted ? mainStyles.button2 : mainStyles.button1}
-                    onPress={() => navigate(item.link)}
+                <Input 
+                    style={styles.inputSection}
+                    inputStyle={styles.whiteText}
+                    placeholder='Password'
+                    leftIcon={
+                        <Icon
+                            style={styles.icon}
+                            name='key'
+                            size={22}
+                            color='white'
+                        />
+                    }
+                    secureTextEntry={true}
+                    name='password'
+                    onChangeText={text => setForm({...form, password: text})}
+                    value={form.password}
+                />
+                <CheckBox
+                    title='Remember Me'
+                    center
+                    size={34}
+                    checkedColor='white'
+                    checked={form.remember}
+                    onPress={() => setForm({...form, remember: !form.remember})}
+                    containerStyle={styles.checkbox}
+                />
+                <TouchableOpacity
+                    style={styles.button1}
+                    onPress={() => onLogin()}
                 >
-                    <Text style={mainStyles.buttonText}>{item.button}</Text>
+                    <Text style={mainStyles.buttonText}>Submit</Text>
                 </TouchableOpacity>
             </View>
         )
     }
 
     return( 
-        <ImageBackground 
-            source={require('../assets/images/5.jpg')}
-            style={{resizeMode: 'cover', justifyContent: 'center'}}
-        >
-            <FlatList
-                data={homepagecontent}
-                renderItem={renderHomeItem}
-                keyExtractor={item => item.id.toString()}
-            />
-        </ImageBackground>
+        <View>
+            <ImageBackground 
+                source={require('../assets/images/10.jpg')}
+                style={mainStyles.imageBackground, {paddingBottom: 280}}
+            >
+                <ContactForm />
+            </ImageBackground>
+        </View>
     )
 }
+
+const styles = StyleSheet.create({
+    ratingSection: {
+        backgroundColor: '#00000000',
+        marginBottom: 30, 
+        margin: 15, 
+        alignItems: 'center', 
+        paddingBottom: 30
+    },
+    checkbox: {
+        backgroundColor: '#999999'
+    },
+    inputSection: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#fff',
+        backgroundColor: '#fff'
+    },
+    button1: {
+        backgroundColor: 'hsla(0, 70%, 30%, .8)',
+        color: 'white', 
+        padding: 24, 
+        width: 300, 
+        alignItems: 'center' ,
+        marginTop: 20      
+    },
+    icon: {
+        marginRight: 20,
+    },
+    whiteText: {
+        color: 'white'
+    }
+});
 
 export default Login
