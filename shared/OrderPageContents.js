@@ -16,7 +16,7 @@ export const ORDERPAGECONTENTS = [
     },
     {
         id: 4,
-        title: 'Unlimited Commission Free Trades',
+        title: 'Commission Free Trades',
         price: 400,
     },
 ];

@@ -51,7 +51,7 @@ const About = (props) => {
 
     return( 
         <ImageBackground 
-            source={require('../assets/images/4.jpg')}
+            source={require('../assets/images/7.jpg')}
             style={{resizeMode: 'cover', justifyContent: 'center'}}
         >
             <FlatList
