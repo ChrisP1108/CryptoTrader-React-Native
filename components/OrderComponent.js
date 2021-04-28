@@ -32,25 +32,47 @@ const Order = (props) => {
                 style={styles.button}
                 onPress={() => itemSelect(item.title, item.price)}
             >
-                <Text style={styles.buttonText}>{item.title}</Text>
-                <Text style={styles.buttonText}>${item.price}</Text>
+                <Text style={styles.buttonText}>{item.title} - ${item.price}</Text>
             </TouchableOpacity>     
         )
     }
 
     const renderCartItem = ({item}) => {
         return(
-            <Text style={mainStyles.buttonText}>{item}</Text>
+            <Text style={styles.cartText}>{item}</Text>
         )
+    }
+
+    const SubmitButton = () => {
+        if (cartTotal === 0) {
+            return(
+                <Text style={styles.nothingHeading}>
+                    Nothing Has Been Selected
+                </Text>
+            )
+        } else {
+            return(
+                <TouchableOpacity 
+                    style={styles.button2}
+                    onPress={() => {
+                        console.log(`Items Selected: [${cartItems}] Price Total: $${cartTotal}`);
+                        setCartItems([]);
+                        setCartTotal(0);
+                    }}
+                >
+                    <Text style={styles.buttonText}>Submit</Text>
+                </TouchableOpacity> 
+            )
+        }
     }
 
     return( 
         <ImageBackground 
-            source={require('../assets/images/5.jpg')}
-            style={{resizeMode: 'cover', justifyContent: 'center'}}
+            source={require('../assets/images/4.jpg')}
+            style={mainStyles.imageBackground, {paddingBottom: 230}}
         >
             <View style={styles.section1}>
-                <Text style={mainStyles.sectionHeading}>
+                <Text style={styles.sectionHeading}>
                     Select Or Deselect Items To Order
                 </Text>
                 <FlatList
@@ -60,24 +82,15 @@ const Order = (props) => {
                 />
             </View>
             <View style={styles.section2}>
-                <Text style={mainStyles.buttonText}>
-                    Product Cart Total: ${cartTotal}
+                <Text style={styles.sectionHeading}>
+                    {cartTotal === 0 ? '' : `Product Cart Total: $${cartTotal}`}
                 </Text>
                 <FlatList
                     data={cartItems}
                     renderItem={renderCartItem}
-                    // keyExtractor={item => item.id.toString()}
+                    keyExtractor={() => Math.ceil(Math.random() * 1000).toString()}
                 />
-                if (cartTotal === []) {
-                    <Text>Nothing Selected</Text>
-                } else {
-                    <TouchableOpacity 
-                        style={mainStyles.button2}
-                        onPress={() => console.log('Submitted')}
-                    >
-                        <Text style={styles.buttonText}>Submit</Text>
-                    </TouchableOpacity> 
-                } 
+                <SubmitButton />
             </View>
         </ImageBackground>
     )
@@ -92,24 +105,53 @@ const styles = StyleSheet.create({
         paddingBottom: 5
     },
     section2: {
-        backgroundColor: 'hsla(0, 0%, 19%, .92)', 
-        marginBottom: 30, 
-        margin: 15, 
+        backgroundColor: 'hsla(0, 0%, 19%, .92)',  
+        marginLeft: 15, 
+        marginRight: 15,
         alignItems: 'center', 
-        paddingBottom: 5
+        paddingBottom: 15
+    },
+    sectionHeading: {
+        fontSize: 22,
+        color: 'white',
+        margin: 5,
+        textAlign: 'center'
     },
     button: {
         backgroundColor: 'hsla(0, 0%, 30%, 0.8)',
         color: 'white', 
-        padding: 5,
+        padding: 15,
         margin: 10, 
         width: 300, 
         alignItems: 'center'       
     },
+    button2: {
+        backgroundColor: 'hsla(0, 70%, 30%, .8)',
+        color: 'white', 
+        padding: 15, 
+        width: 300, 
+        alignItems: 'center',
+        marginTop: 30       
+    },
     buttonText: {
         color: 'white', 
         fontSize: 15
-    }
+    },
+    cartText: {
+        color: 'white', 
+        fontSize: 16,
+        marginTop: 10,
+        textAlign: 'center',
+        padding: 2
+    },
+    nothingHeading: {
+        position: 'absolute',
+        top: 9,
+        fontSize: 20,
+        color: 'white',
+        margin: 5,
+        textAlign: 'center'
+    },
 });
 
 export default Order
