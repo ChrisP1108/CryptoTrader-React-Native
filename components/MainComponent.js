@@ -1,21 +1,5 @@
 import React from 'react';
 
-// Component Imports
-    import Home from './HomeComponent';
-    import Software from './SoftwareComponent';
-    import Order from './OrderComponent';
-    import About from './AboutComponent';
-    import Contact from './ContactComponent';
-    import Login from './LoginComponent';
-    
-// Stack Navigation Imports    
-    import HomeNavigator from './NavigationComponent';
-    import SoftwareNavigator from './NavigationComponent';
-    import OrderNavigator from './NavigationComponent';
-    import AboutNavigator from './NavigationComponent';
-    import ContactNavigator from './NavigationComponent';
-    import LoginNavigator from './NavigationComponent';
-
 // Navigation Imports
     import { MainNavigator } from './NavigationComponent';
 
@@ -30,6 +14,7 @@ import React from 'react';
     import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar';
     import { Icon } from 'react-native-elements';
     import SafeAreaView from 'react-native-safe-area-view';
+    
 
 const AppNavigator = createAppContainer(MainNavigator);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, FlatList, Text, TextInput, Alert, 
-    Animated, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
+    Animated, TouchableOpacity, ImageBackground, StyleSheet} from 'react-native';
 import { useContext, useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ListItem, Tile, Card, Image, Input, CheckBox, Rating } from 'react-native-elements';

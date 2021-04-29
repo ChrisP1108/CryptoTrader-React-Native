@@ -1,4 +1,6 @@
 import React from 'react';
+import { ScrollView, View, Image, Text } from 'react-native';
+
 
 // Component Imports
 import Home from './HomeComponent';
@@ -12,6 +14,7 @@ import Login from './LoginComponent';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { Icon } from 'react-native-elements';
+import { SafeAreaView } from 'react-native-safe-area-view';
 
 // Styles Import
 import { mainStyles } from '../styles/MainStylesComponent';
@@ -167,12 +170,12 @@ export const MainNavigator = createDrawerNavigator(
             screen: HomeNavigator,
             navigationOptions: {
                 drawerLabel: 'Home',
-                drawerIcon: ({tintColor}) => (
+                drawerIcon: () => (
                     <Icon   
-                        name='download'
+                        name='arrow-right'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='#791515'
                     />
                 )
             }
@@ -181,12 +184,12 @@ export const MainNavigator = createDrawerNavigator(
             screen: SoftwareNavigator,
             navigationOptions: {
                 drawerLabel: 'Software',
-                drawerIcon: ({tintColor}) => (
+                drawerIcon: () => (
                     <Icon   
-                        name='download'
+                        name='arrow-right'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='#791515'
                     />
                 )
             }
@@ -195,12 +198,12 @@ export const MainNavigator = createDrawerNavigator(
             screen: OrderNavigator,
             navigationOptions: {
                 drawerLabel: 'Ordering',
-                drawerIcon: ({tintColor}) => (
+                drawerIcon: () => (
                     <Icon   
-                        name='download'
+                        name='arrow-right'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='#791515'
                     />
                 )
             }
@@ -209,12 +212,12 @@ export const MainNavigator = createDrawerNavigator(
             screen: AboutNavigator,
             navigationOptions: {
                 drawerLabel: 'About Us',
-                drawerIcon: ({tintColor}) => (
+                drawerIcon: () => (
                     <Icon   
-                        name='download'
+                        name='arrow-right'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='#791515'
                     />
                 )
             }
@@ -223,12 +226,12 @@ export const MainNavigator = createDrawerNavigator(
             screen: ContactNavigator,
             navigationOptions: {
                 drawerLabel: 'Contact Us',
-                drawerIcon: ({tintColor}) => (
+                drawerIcon: () => (
                     <Icon   
-                        name='download'
+                        name='arrow-right'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='#791515'
                     />
                 )
             }
@@ -237,15 +240,19 @@ export const MainNavigator = createDrawerNavigator(
             screen: LoginNavigator,
             navigationOptions: {
                 drawerLabel: 'Login',
-                drawerIcon: ({tintColor}) => (
+                drawerIcon: () => (
                     <Icon   
-                        name='download'
+                        name='arrow-right'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='#791515'
                     />
                 )
             }
         }
+    },
+    {
+        initialRouteName: 'Home',
+        drawerBackgroundColor: '#808080',
     }
 )
