@@ -12,6 +12,8 @@ const Contact = (props) => {
     const contactimport = useContext(State);
     const contactpagecontent = contactimport.contactuspagecontent;
 
+    const { navigate } = props.navigation;
+
     const ContactForm = () => {
 
         const resetForm = {
@@ -38,9 +40,22 @@ const Contact = (props) => {
                         ]
                     )
                 return;
+            } else {
+                Alert.alert(
+                    'Thank You For Your Feedback!',
+                    'You Will Now Be Redirected To The Home Screen.',
+                    [
+                        {
+                            text: 'Ok',
+                            style: 'cancel',
+                            onPress: () => {
+                                setForm(resetForm);
+                            }
+                        }
+                    ]
+                )            
+                navigate('Home');
             }
-            console.log(form)
-            setForm(resetForm);
         }
 
         return (
