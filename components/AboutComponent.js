@@ -76,8 +76,10 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: 'hsla(0, 70%, 30%, .8)',
         color: 'white', 
-        padding: 24,
-        margin: 15, 
+        padding: 15,
+        marginLeft: 15,
+        marginRight: 15,
+        marginTop: 15, 
         width: 300, 
         alignItems: 'center'       
     },
