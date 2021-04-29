@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, Text, Animated, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, FlatList, Text, Animated, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 import { useContext, useState } from 'react';
 import { State } from '../state/State';
 import { ListItem, Tile, Card, Image } from 'react-native-elements';
@@ -55,9 +55,20 @@ const Order = (props) => {
                 <TouchableOpacity 
                     style={styles.button2}
                     onPress={() => {
-                        console.log(`Items Selected: [${cartItems}] Price Total: $${cartTotal}`);
+                        Alert.alert(
+                            'Thank You For Your Order',
+                            `Your Price Total: $${cartTotal}`,
+                            [
+                                {
+                                    text: 'Ok',
+                                    style: 'cancel',
+                                    onPress: () => console.log('Cancel Pressed')
+                                }
+                            ]
+                        )
                         setCartItems([]);
                         setCartTotal(0);
+                        navigate('Home');
                     }}
                 >
                     <Text style={styles.buttonText}>Submit</Text>
