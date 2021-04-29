@@ -260,6 +260,7 @@ export const MainNavigator = createDrawerNavigator(
             screen: LoginNavigator,
             navigationOptions: {
                 drawerLabel: 'Login',
+                colorControlHighlight: 'white',
                 drawerIcon: () => (
                     <Icon   
                         name='arrow-right'
@@ -273,7 +274,7 @@ export const MainNavigator = createDrawerNavigator(
     },
     {
         initialRouteName: 'Home',
-        drawerBackgroundColor: '#909090',
+        drawerBackgroundColor: '#929292',
         contentComponent: CustomDrawerContentComponent
     }
 )
