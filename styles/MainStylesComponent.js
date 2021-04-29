@@ -6,7 +6,7 @@ export const mainStyles = StyleSheet.create({
         paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarheight
     },
     drawerHeader: {
-        backgroundColor: '#791515',
+        backgroundColor: '#303030',
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
@@ -21,7 +21,7 @@ export const mainStyles = StyleSheet.create({
     drawerImage: {
         margin: 10,
         height: 60,
-        width: 60
+        width: 270
     },
     stackIcon: {
         marginLeft: 10,

@@ -164,6 +164,26 @@ export const LoginNavigator = createStackNavigator(
     }
 );
 
+export const CustomDrawerContentComponent = props => (
+    <ScrollView>
+        <View
+            style={mainStyles.container}
+            forceInset={{top: 'always', horizontal: 'never'}}
+        >
+            <View style={mainStyles.drawerHeader}>
+                {/* <View style={{flex: 2}}>
+                    <Text style={mainStyles.drawerLogo}>CRYPTOTRADER</Text>
+                </View> */}
+                <Image
+                    style={mainStyles.drawerImage}
+                    source={require('../assets/images/logo.png')}
+                />
+            </View>
+            <DrawerItems {...props} />
+        </View>
+    </ScrollView>
+)
+
 export const MainNavigator = createDrawerNavigator(
     {
         Home: { 
@@ -253,6 +273,7 @@ export const MainNavigator = createDrawerNavigator(
     },
     {
         initialRouteName: 'Home',
-        drawerBackgroundColor: '#808080',
+        drawerBackgroundColor: '#909090',
+        contentComponent: CustomDrawerContentComponent
     }
 )
