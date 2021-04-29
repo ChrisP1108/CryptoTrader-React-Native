@@ -20,8 +20,8 @@ export const mainStyles = StyleSheet.create({
     },
     drawerImage: {
         margin: 10,
-        height: 60,
-        width: 270
+        height: 55,
+        width: 250
     },
     stackIcon: {
         marginLeft: 10,
