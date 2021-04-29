@@ -15,6 +15,8 @@ const Login = (props) => {
             password: '',
             remember: false
         }
+
+        const { navigate } = props.navigation;
         
         const [form, setForm] = useState(resetForm);
     
@@ -32,9 +34,20 @@ const Login = (props) => {
                         ]
                     )
                 return;
+            } else {
+                Alert.alert(
+                    'Login Successful!',
+                    'You will now be redirected.',
+                    [
+                        {
+                            text: 'Ok',
+                            style: 'cancel',
+                            onPress: () => setForm(resetForm)
+                        }
+                    ]
+                )          
+                navigate('Home');
             }
-            console.log(form)
-            setForm(resetForm);
         }
 
         return (
