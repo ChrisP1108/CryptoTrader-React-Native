@@ -62,12 +62,13 @@ const Order = (props) => {
                                 {
                                     text: 'Ok',
                                     style: 'cancel',
-                                    onPress: () => console.log('Cancel Pressed')
+                                    onPress: () => {
+                                        setCartItems([]);
+                                        setCartTotal(0);
+                                    }
                                 }
                             ]
-                        )
-                        setCartItems([]);
-                        setCartTotal(0);
+                        )            
                         navigate('Home');
                     }}
                 >
