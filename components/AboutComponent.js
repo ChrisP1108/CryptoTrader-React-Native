@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { View, FlatList, Text, Animated, TouchableOpacity, ImageBackground } from 'react-native';
+import React from 'react';
+import { View, FlatList, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useContext } from 'react';
 import { State } from '../state/State';
-import { ListItem, Tile, Card, Image } from 'react-native-elements';
+import { Image } from 'react-native-elements';
 import { StyleSheet } from 'react-native';
 import { mainStyles } from '../styles/MainStylesComponent';
 

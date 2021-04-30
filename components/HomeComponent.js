@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, FlatList, Text, Animated, Pressable, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { useContext } from 'react';
 import { State } from '../state/State';
-import { ListItem, Tile, Card, Image } from 'react-native-elements';
+import { Image } from 'react-native-elements';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Home = (props) => {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, FlatList, Text, TextInput, Alert, 
-    Animated, TouchableOpacity, ImageBackground, StyleSheet} from 'react-native';
-import { useContext, useState } from 'react';
+import { View, Text, Alert, 
+    TouchableOpacity, ImageBackground, StyleSheet} from 'react-native';
+import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { ListItem, Tile, Card, Image, Input, CheckBox, Rating } from 'react-native-elements';
+import { Input, CheckBox } from 'react-native-elements';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Login = (props) => {
@@ -24,7 +24,7 @@ const Login = (props) => {
             if (form.userName === '' || form.password === '') {
                     Alert.alert(
                         'Not All Fields Have Been Filled Out',
-                        'Please go back and fill out all fields before logging in.',
+                        'Please Go Back And Fill Out All Fields Before Logging In.',
                         [
                             {
                                 text: 'Ok',
@@ -37,7 +37,7 @@ const Login = (props) => {
             } else {
                 Alert.alert(
                     'Login Successful!',
-                    'You will now be redirected.',
+                    'You Will Now Be Redirected.',
                     [
                         {
                             text: 'Ok',

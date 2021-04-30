@@ -1,6 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Image, Text } from 'react-native';
-
+import { ScrollView, View, Image } from 'react-native';
 
 // Component Imports
 import Home from './HomeComponent';
@@ -14,7 +13,6 @@ import Login from './LoginComponent';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { Icon } from 'react-native-elements';
-import { SafeAreaView } from 'react-native-safe-area-view';
 
 // Styles Import
 import { mainStyles } from '../styles/MainStylesComponent';

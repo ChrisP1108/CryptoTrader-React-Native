@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, FlatList, Text, TextInput, Alert, 
-    Animated, TouchableOpacity, ImageBackground, StyleSheet, Button } from 'react-native';
+import { View, Alert, 
+    TouchableOpacity, ImageBackground, StyleSheet, Text } from 'react-native';
 import { useContext, useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { State } from '../state/State';
-import { ListItem, Tile, Card, Image, Input, Rating } from 'react-native-elements';
+import { Input, Rating } from 'react-native-elements';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Contact = (props) => {
@@ -30,7 +30,7 @@ const Contact = (props) => {
                 || form.feedback === '' || form.rating === 0) {
                     Alert.alert(
                         'Not All Fields Have Been Filled Out',
-                        'Please go back and fill out all fields before submitting.',
+                        'Please Go Back And Fill Out All Fields Before Submitting.',
                         [
                             {
                                 text: 'Ok',
