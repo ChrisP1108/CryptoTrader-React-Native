@@ -1,14 +1,13 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity, Alert, ImageBackground } from 'react-native';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { State } from '../state/State';
 import { StyleSheet } from 'react-native';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Order = (props) => {
 
-    const orderimport = useContext(State);
-    const orderpagecontent = orderimport.orderpagecontent;
+    const orderpagecontent = State.orderpagecontent;
     
     const { navigate } = props.navigation;
 
@@ -43,38 +42,30 @@ const Order = (props) => {
     }
 
     const SubmitButton = () => {
-        if (cartTotal === 0) {
-            return(
-                <Text style={styles.nothingHeading}>
-                    Nothing Has Been Selected
-                </Text>
-            )
-        } else {
-            return(
-                <TouchableOpacity 
-                    style={styles.button2}
-                    onPress={() => {
-                        Alert.alert(
-                            'Thank You For Your Order',
-                            `Your Price Total: $${cartTotal}`,
-                            [
-                                {
-                                    text: 'Ok',
-                                    style: 'cancel',
-                                    onPress: () => {
-                                        setCartItems([]);
-                                        setCartTotal(0);
-                                    }
+        return(
+            <TouchableOpacity 
+                style={styles.button2}
+                onPress={() => {
+                    Alert.alert(
+                        'Thank You For Your Order',
+                        `Your Price Total: $${cartTotal}`,
+                        [
+                            {
+                                text: 'Ok',
+                                style: 'cancel',
+                                onPress: () => {
+                                    setCartItems([]);
+                                    setCartTotal(0);
                                 }
-                            ]
-                        )            
-                        navigate('Home');
-                    }}
-                >
-                    <Text style={styles.buttonText}>Submit</Text>
-                </TouchableOpacity> 
-            )
-        }
+                            }
+                        ]
+                    )            
+                    navigate('Home');
+                }}
+            >
+                <Text style={styles.buttonText}>Submit</Text>
+            </TouchableOpacity> 
+        )
     }
 
     return( 

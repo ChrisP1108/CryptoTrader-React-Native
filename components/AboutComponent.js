@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import { useContext } from 'react';
 import { State } from '../state/State';
 import { Image } from 'react-native-elements';
 import { StyleSheet } from 'react-native';
@@ -8,8 +7,7 @@ import { mainStyles } from '../styles/MainStylesComponent';
 
 const About = (props) => {
 
-    const aboutimport = useContext(State);
-    const aboutpagecontent = aboutimport.aboutpagecontent;
+    const aboutpagecontent = State.aboutpagecontent;
     
     const { navigate } = props.navigation;
 

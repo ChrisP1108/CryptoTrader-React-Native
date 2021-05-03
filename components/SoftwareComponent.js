@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import { useContext } from 'react';
 import { State } from '../state/State';
 import { Image } from 'react-native-elements';
 import { StyleSheet } from 'react-native';
@@ -8,8 +7,7 @@ import { mainStyles } from '../styles/MainStylesComponent';
 
 const Software = (props) => {
 
-    const softwareimport = useContext(State);
-    const softwarepagecontent = softwareimport.softwarepagecontent;
+    const softwarepagecontent = State.softwarepagecontent;
     
     const { navigate } = props.navigation;
 

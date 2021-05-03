@@ -5,9 +5,7 @@ import { CONTENT } from './state/State';
 
 export default function App() {
   return (
-    <State.Provider value={CONTENT}>
-      <Main />
-    </State.Provider>
+    <Main />
   );
 }
 

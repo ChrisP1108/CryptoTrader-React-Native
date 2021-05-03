@@ -169,9 +169,6 @@ export const CustomDrawerContentComponent = props => (
             forceInset={{top: 'always', horizontal: 'never'}}
         >
             <View style={mainStyles.drawerHeader}>
-                {/* <View style={{flex: 2}}>
-                    <Text style={mainStyles.drawerLogo}>CRYPTOTRADER</Text>
-                </View> */}
                 <Image
                     style={mainStyles.drawerImage}
                     source={require('../assets/images/logo.png')}

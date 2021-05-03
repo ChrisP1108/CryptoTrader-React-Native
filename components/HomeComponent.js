@@ -1,19 +1,17 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import { useContext } from 'react';
 import { State } from '../state/State';
 import { Image } from 'react-native-elements';
 import { mainStyles } from '../styles/MainStylesComponent';
 
 const Home = (props) => {
 
-    const homeimport = useContext(State);
-    const homepagecontent = homeimport.homepagecontent;
+    const homepagecontent = State.homepagecontent;
 
     const { navigate } = props.navigation;
 
     const renderHomeItem = ({item}) => {
-        console.log(item)
+
         return (
             <View style={item.inverted ? mainStyles.section2 : mainStyles.section1}>
                 <Text style={mainStyles.sectionHeading}>
@@ -23,7 +21,7 @@ const Home = (props) => {
                     style={mainStyles.sectionImage}
                     source={item.id === 1 ? require('../assets/images/11.jpg') : 
                             item.id === 2 ? require('../assets/images/8.jpg') : 
-                            require('../assets/images/13.jpg')} 
+                            require('../assets/images/13.jpg')}
                 />
                 <Text style={mainStyles.sectionText}>
                     {item.content1 + ' ' + item.content2}
